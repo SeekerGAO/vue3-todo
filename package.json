@@ -1,0 +1,21 @@
+{
+  "name": "vite-with-vue3-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "element-plus": "^1.0.1-beta.11",
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.1",
+    "vuex": "^4.0.0-rc.2",
+    "vuex-persistedstate": "^4.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "sass": "^1.30.0",
+    "typescript": "^4.1.3",
+    "vite": "^1.0.0-rc.13"
+  }
+}
