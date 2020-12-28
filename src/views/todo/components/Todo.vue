@@ -16,7 +16,7 @@
       class="edit"
       type="text"
       v-model="todo.title"
-      v-todo-focus="todo === editedTodo"
+      v-focus="todo === editedTodo"
       @blur="doneEditTodo(todo)"
       @keyup.enter="doneEditTodo(todo)"
       @keyup.esc="cancelEditTodo(todo)"
@@ -70,13 +70,6 @@ export default defineComponent({
       doneEditTodo,
       cancelEditTodo,
     };
-  },
-  directives: {
-    "todo-focus": function (el, binding) {
-      if (binding.value) {
-        el.focus();
-      }
-    },
   },
 });
 </script>
