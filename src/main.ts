@@ -14,4 +14,15 @@ app.use(router);
 app.use(store);
 app.use(ElementPlus);
 
+app.directive("focus", {
+  mounted(el, binding, vnode) {
+    el.focus();
+  },
+  beforeUpdate(el, binding, vnode) {
+    if (binding.value) {
+      el.focus();
+    }
+  },
+});
+
 app.mount("#app");

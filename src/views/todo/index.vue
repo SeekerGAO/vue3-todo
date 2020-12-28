@@ -8,6 +8,7 @@
         autocomplete="off"
         placeholder="What needs to be done?"
         v-model="newTodo"
+        v-focus
         @keyup.enter="handleAddTodo"
       />
     </header>
@@ -260,17 +261,6 @@ export default defineComponent({
       handleDoneEditTodo,
       handleCancelEditTodo,
     };
-  },
-
-  // a custom directive to wait for the DOM to be updated
-  // before focusing on the input field.
-  // http://vuejs.org/guide/custom-directive.html
-  directives: {
-    "todo-focus": function (el, binding) {
-      if (binding.value) {
-        el.focus();
-      }
-    },
   },
 });
 </script>
