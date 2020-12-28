@@ -100,7 +100,7 @@ import {
 } from "vue";
 import { useStore } from "vuex";
 import { useRouter, RouteLocationNormalizedLoaded } from "vue-router";
-import Todo from "@/views/todo/components/Todo.vue";
+import Todo from "/@/views/todo/components/Todo.vue";
 
 type Todo = {
   id: number;
