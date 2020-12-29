@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 // 1. Define route components.
 // These can be imported from other files
-const Home = () => import("/@/views/home.vue");
 const Todo = () => import("/@/views/todo/index.vue");
 
 // 2. Define some routes
@@ -10,8 +9,8 @@ const Todo = () => import("/@/views/todo/index.vue");
 // We'll talk about nested routes later.
 const routes = [
   { path: "/", redirect: "/todo" },
-  { path: "/home", component: Home },
   { path: "/todo", component: Todo },
+  { path: "/:catchAll(.*)", redirect: "/todo" },
 ];
 
 // 3. Create the router instance and pass the `routes` option
