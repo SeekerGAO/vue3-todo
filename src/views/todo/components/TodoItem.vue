@@ -26,29 +26,32 @@
 
 <script lang="ts">
 import { defineComponent, toRefs, ref } from "vue";
+import { useStore } from "vuex";
 import { Todo } from "../types";
 
 export default defineComponent({
-  name: "Todo",
+  name: "TodoItem",
   props: {
     todo: {
       type: Object,
       required: true,
     },
   },
-  emits: ["current:todoValue"],
   setup(props, ctx) {
-    const { todo } = toRefs(props);
+    const store = useStore();
+
     const editedTodo = ref<null | Todo>(null);
     const beforeEditCache = ref<string>("");
 
     const removeTodo = (todo: Todo) => {
-      ctx.emit("current:todoValue", todo);
+      store.dispatch("removeTodo", todo);
     };
+
     const editTodo = (todo: Todo) => {
       beforeEditCache.value = todo.title;
       editedTodo.value = todo;
     };
+
     const doneEditTodo = (todo: Todo) => {
       if (!editedTodo.value) return;
       editedTodo.value = null;
@@ -57,13 +60,14 @@ export default defineComponent({
         removeTodo(todo);
       }
     };
+
     const cancelEditTodo = (todo: Todo) => {
       editedTodo.value = null;
       todo.title = beforeEditCache.value;
     };
 
     return {
-      todo,
+      ...toRefs(props),
       editedTodo,
       removeTodo,
       editTodo,
